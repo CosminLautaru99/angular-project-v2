@@ -1,0 +1,62 @@
+<div fxLayout="column" fxLayoutAlign="start stretch" class="cards">
+    <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="90%" fxFlex.md="66.6667%" fxFlex.gt-md="50%">
+        <mat-card>
+            
+                <mat-card-title>Truck Management</mat-card-title>
+            
+
+            <mat-card>
+                <mat-card-content>
+                    <mat-form-field>
+                        <mat-label>Truck ID</mat-label>
+                        <input matInput type="number" name="id" [(ngModel)]="addTruckID">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Truck Type</mat-label>
+                        <input matInput name="type" [(ngModel)]="addTruckType">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Truck Weight in tones</mat-label>
+                        <input matInput type="number" name="weight" [(ngModel)]="addTruckWeight">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Truck Height in meters</mat-label>
+                        <input matInput type="number" name="height" [(ngModel)]="addTruckHeight">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Truck Width in meters</mat-label>
+                        <input matInput type="number" name="width" [(ngModel)]="addTruckWidth">
+                    </mat-form-field>
+                    <button mat-raised-button color="accent"(click)="addTruck()">Add Truck</button>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Registered trucks</mat-card-title>
+                </mat-card-header>
+                <mat-card>
+                    <mat-card *ngFor="let truck of truckArr" class="added-truck">
+                        <div class="truck-details">
+                            <div>Truck ID: {{truck.id}}</div>
+                            <div>Truck Type: {{truck.type}}</div>
+                            <div>Truck Weight: {{truck.weight}}</div>
+                            <div>Truck Height: {{truck.height}}</div>
+                            <div>Truck Width: {{truck.width}}</div>
+                        </div>
+                        <div class="add-remove-buttons">
+                        <!-- <button mat-button (click)="openDialog()">Modify</button> -->
+                        <dialog-overview-example (click)="deleteTruck(truck)"></dialog-overview-example>
+                        <button (click)="deleteTruck(truck)">Remove</button>
+                        </div>  
+                    </mat-card>
+                </mat-card>
+            </mat-card>
+
+            <!-- de facut modify -->
+            
+        </mat-card>
+        </div>
+    </div>
+</div>

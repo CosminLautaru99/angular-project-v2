@@ -22,6 +22,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from "@angular/material/card"
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { DashboardComponentDialog } from './component/dashboard/dashboard.component.dialog';
 
 
 
@@ -33,7 +34,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     AppComponent,
     DashboardComponent,
     DialogOverviewExample,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    DashboardComponentDialog
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatInputModule,
     MatFormFieldModule,
     MaterialModule
+  ],
+  exports: [
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

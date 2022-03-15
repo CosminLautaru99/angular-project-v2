@@ -1,10 +1,31 @@
 .cards {
-    background: #F5F5F5;
-    width: 600px;
+    background:#141414;
+    width: 100%;
+    height:calc(100vh - 50px);
     margin: 0 auto;
-    margin-top: 50px;
+    padding-top:50px;
 }
-mat-card{
+.container{
+    display:flex;
+    flex-direction: column;
+}
+.main-form{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    margin-top:30px;
+}
+.add-trucks{
+    width:35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.display-trucks{
+    width:35%;
+}
+
+mat-card{   
     background:#141414;
     color:#F5F5F5;
     border-radius:0;
@@ -17,11 +38,28 @@ mat-card-content{
     display:flex;
     flex-direction: column;
 }
-/* .mat-card:not([class*=mat-elevation-z]) {
-    
-} */
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+}
+.border{
+    border:1px solid white;
+}
+mat-label{
+    color:white;
+}
+mat-card-header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
 .added-truck{
     text-align:left;
+    border-bottom:1px solid white;
+    margin-bottom:15px;
 }
 .add-remove-buttons{
     text-align: right;
@@ -31,4 +69,7 @@ mat-card-content{
 }
 .mat-form-field{
     color:#F5F5F5;
+}
+.mat-raised-button{
+    margin:0 10px;
 }

@@ -1,3 +1,32 @@
-<section *ngFor="let truck of truckArr">
-<button (click)="deleteTruck(truck)">Remove</button>
-</section>
+<!-- <section *ngFor="let truck of truckArr">
+<button (click)="call(truck)">Remove</button>
+</section> -->
+<!-- <mat-card-content></mat-card-content> -->
+
+<button class="btn btn-outline-success" type="button" data-bs-dismiss="modal" (click)="editTruck()">Update</button>
+
+<!-- <mat-card>
+    <mat-card-content>
+        <mat-form-field>
+            <mat-label>Truck ID</mat-label>
+            <input matInput type="number" name="id" [(ngModel)]="addTruckID">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label >Truck Type</mat-label>
+            <input matInput name="type" [(ngModel)]="addTruckType">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Truck Weight in tones</mat-label>
+            <input matInput type="number" name="weight" [(ngModel)]="addTruckWeight">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Truck Height in meters</mat-label>
+            <input matInput type="number" name="height" [(ngModel)]="addTruckHeight">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Truck Width in meters</mat-label>
+            <input matInput type="number" name="width" [(ngModel)]="addTruckWidth">
+        </mat-form-field>
+        <button mat-raised-button color="accent"(click)="addTruck()">Add Truck</button>
+    </mat-card-content>
+</mat-card> -->

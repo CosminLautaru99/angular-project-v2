@@ -1,1 +1,25 @@
-<!-- <button mat-raised-button color="accent"(click)="addTruck()">Add Truck</button> -->
+<div style="display:flex; flex-direction:column">
+<mat-form-field>
+        <mat-label>Truck ID</mat-label>
+        <input matInput type="number" name="id" [(ngModel)]="editTruckID">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Truck Type</mat-label>
+        <input matInput name="type" [(ngModel)]="editTruckType">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Truck Weight in tones</mat-label>
+        <input matInput type="number" name="weight" [(ngModel)]="editTruckWeight">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Truck Height in meters</mat-label>
+        <input matInput type="number" name="height" [(ngModel)]="editTruckHeight">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Truck Width in meters</mat-label>
+        <input matInput type="number" name="width" [(ngModel)]="editTruckWidth">
+    </mat-form-field>
+
+
+<button mat-raised-button color="accent" data-bs-dismiss="modal" (click)="editTruck()">Update</button>
+</div>

@@ -25,6 +25,5 @@ export class CrudService {
    }
    editTruck(truck : Truck) : Observable<Truck> {
      return this.http.put<Truck>(this.serviceURL+'/'+truck.id, truck);
-   }
-  
+   }  
 }

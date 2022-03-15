@@ -1,4 +1,4 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Truck } from 'src/app/model/truck';
 import { CrudService } from 'src/app/service/crud.service';
 
@@ -8,6 +8,7 @@ import { CrudService } from 'src/app/service/crud.service';
   selector: 'dashboard-component-dialog',
   templateUrl: './dashboard.component.dialog.html',
 })
+
 
 
 
@@ -22,10 +23,15 @@ export class DashboardComponentDialog implements OnInit {
   addTruckHeight : number = 0;
   addTruckWidth : number = 0;
 
+  editTruckType : string = '';
+
   constructor(private crudService : CrudService) { }
 
   ngOnInit(): void {
+    this.addTruckType = '';
+    this.editTruckType = '';
     this.truckObj = new Truck();
+    this.truckArr = []
     this.getAllTrucks();
   }
   getAllTrucks() {
@@ -36,27 +42,9 @@ export class DashboardComponentDialog implements OnInit {
     })
   }
 
-  
-
-  addTruck() {
-    this.truckObj.id = this.addTruckID;
-    this.truckObj.type = this.addTruckType;
-    this.truckObj.weight = this.addTruckWeight;
-    this.truckObj.height = this.addTruckHeight;
-    this.truckObj.width = this.addTruckWidth;
-    this.crudService.addTruck(this.truckObj).subscribe(res =>{
-      this.ngOnInit();
-      this.addTruckID;
-      this.addTruckType= '';
-      this.addTruckWeight;
-      this.addTruckHeight;
-      this.addTruckWidth;
-    }, err =>{
-      alert(err);
-    })
-  }
 
   editTruck(){
+    this.truckObj.type = this.editTruckType;
     this.crudService.editTruck(this.truckObj).subscribe(res =>{
       this.ngOnInit();
     }, err=>{
@@ -64,12 +52,9 @@ export class DashboardComponentDialog implements OnInit {
     })
   }
 
-  deleteTruck(etruck : Truck){
-    this.crudService.deleteTruck(etruck).subscribe(res =>{
-      this.ngOnInit()
-    }, err =>{
-      alert("Failed to delete truck");
-    })
+  call(etruck: Truck){
+    this.truckObj = etruck;
+    this.editTruckType = etruck.type;
   }
   
 }

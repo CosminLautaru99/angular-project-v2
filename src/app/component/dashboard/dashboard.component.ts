@@ -3,7 +3,6 @@ import { Truck } from 'src/app/model/truck';
 import { CrudService } from 'src/app/service/crud.service';
 
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -23,10 +22,15 @@ export class DashboardComponent implements OnInit {
   addTruckHeight : number = 0;
   addTruckWidth : number = 0;
 
+  editTruckType : string = '';
+
   constructor(private crudService : CrudService) { }
 
   ngOnInit(): void {
+    this.editTruckType = '';
+    this.addTruckType = '';
     this.truckObj = new Truck();
+    this.truckArr = []
     this.getAllTrucks();
   }
   getAllTrucks() {
@@ -72,6 +76,12 @@ export class DashboardComponent implements OnInit {
       alert("Failed to delete truck");
     })
   }
+  call(etruck: Truck){
+    console.log('truck');
+    this.truckObj = etruck;
+    this.editTruckType = etruck.type;
+  }
   
 }
+
 

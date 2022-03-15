@@ -1,7 +1,7 @@
 .cards {
     background:#141414;
     width: 100%;
-    height:calc(100vh - 50px);
+    height:100vh;
     margin: 0 auto;
     padding-top:50px;
 }
@@ -72,4 +72,25 @@ mat-card-header{
 }
 .mat-raised-button{
     margin:0 10px;
+}
+.modal-header{
+    display: flex;
+    justify-content: center;
+}
+.modal-title{
+    font-size:24px;
+    color:black;
+}
+.input-group{
+    display: flex;
+    flex-direction: column;
+}
+.input-group>.form-control, .input-group>.form-select{
+    width:100%;
+}
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){
+    margin-left:0;
+}
+.update-btn{
+    margin-top:20px;
 }

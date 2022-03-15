@@ -22,17 +22,34 @@ export class DashboardComponent implements OnInit {
   addTruckHeight : number = 0;
   addTruckWidth : number = 0;
 
+  editTruckID : number = 0;
   editTruckType : string = '';
+  editTruckWeight : number = 0;
+  editTruckHeight : number = 0;
+  editTruckWidth : number = 0;
 
   constructor(private crudService : CrudService) { }
 
   ngOnInit(): void {
-    this.editTruckType = '';
-    this.addTruckType = '';
+    
     this.truckObj = new Truck();
     this.truckArr = []
+
+    this.editTruckID = 0;
+    this.editTruckType = '';
+    this.editTruckHeight = 0;
+    this.editTruckWeight = 0;
+    this.editTruckWidth = 0;
+    
+    this.addTruckID = 0;
+    this.addTruckType = '';
+    this.addTruckHeight = 0;
+    this.addTruckWeight = 0;
+    this.addTruckWidth = 0;
+    
     this.getAllTrucks();
   }
+
   getAllTrucks() {
     this.crudService.getAllTrucks().subscribe(res =>{
       this.truckArr = res;
@@ -49,6 +66,7 @@ export class DashboardComponent implements OnInit {
     this.truckObj.weight = this.addTruckWeight;
     this.truckObj.height = this.addTruckHeight;
     this.truckObj.width = this.addTruckWidth;
+
     this.crudService.addTruck(this.truckObj).subscribe(res =>{
       this.ngOnInit();
       this.addTruckID;
@@ -57,11 +75,16 @@ export class DashboardComponent implements OnInit {
       this.addTruckHeight;
       this.addTruckWidth;
     }, err =>{
-      alert(err);
+      alert('Chose a different ID');
     })
   }
 
   editTruck(){
+    this.truckObj.id = this.editTruckID;
+    this.truckObj.type = this.editTruckType;
+    this.truckObj.weight = this.editTruckWeight;
+    this.truckObj.height = this.editTruckHeight;
+    this.truckObj.width = this.editTruckWidth;
     this.crudService.editTruck(this.truckObj).subscribe(res =>{
       this.ngOnInit();
     }, err=>{
@@ -79,7 +102,11 @@ export class DashboardComponent implements OnInit {
   call(etruck: Truck){
     console.log('truck');
     this.truckObj = etruck;
+    this.editTruckID = etruck.id;
     this.editTruckType = etruck.type;
+    this.editTruckWeight = etruck.weight;
+    this.editTruckHeight = etruck.height;
+    this.editTruckWidth = etruck.width;
   }
   
 }

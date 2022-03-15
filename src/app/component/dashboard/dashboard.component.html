@@ -50,7 +50,7 @@
                         </div>
                         <div class="add-remove-buttons">
                         <!-- <button mat-button (click)="openDialog()">Modify</button> -->
-                        <dialog-overview-example data-bs-target="#exampleModal" (click)="call(truck)"></dialog-overview-example>
+                        <button class="btn btn-warning col me-2" data-bs-toggle="modal" type="button" data-bs-target="#exampleModal" (click)="call(truck)">Modify</button>
                         <button mat-raised-button (click)="deleteTruck(truck)">Remove</button>
                         </div>  
                     </mat-card>
@@ -59,6 +59,26 @@
         </div>
 
             <!-- de facut modify -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Truck</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group p-4">
+                            <label for="type"> Type </label>
+                            <input type="text" class="form-control"  name="type" [(ngModel)]="editTruckType">
+                            <input type="number" class="form-control"  name="weight" [(ngModel)]="editTruckWeight">
+                            <input type="number" class="form-control"  name="height" [(ngModel)]="editTruckHeight">
+                            <input type="number" class="form-control"  name="width" [(ngModel)]="editTruckWidth">
+                            <button class="btn btn-warning update-btn" type="button" data-bs-dismiss="modal" (click)="editTruck()">Update</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
             
         </mat-card>
         </div>
